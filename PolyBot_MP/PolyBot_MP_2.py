@@ -9,12 +9,11 @@ import random
 network = 'irc.goat.chat'
 port = 6667
 homechan = '#modernpowers'
-nick = 'PolyBot'
 irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
 irc.connect ( ( network, port ) )
 print irc.recv ( 4096 )
 irc.send ( 'PASS pjmtpjmt\r\n')
-irc.send ( 'NICK '+nick+'\r\n' )
+irc.send ( 'NICK PolyBot\r\n' )
 irc.send ( 'USER PolyBot PolyBot PolyBot :Python IRC\r\n' )
 #----------------------------------------------------------------------------------#
 
@@ -67,9 +66,9 @@ while True:
 		
 		if action == 'PRIVMSG':
 				
-			if data.find(nick+', ') != -1:
+			if data.find(PolyBot, ') != -1:
 				x = data.split('#')[1]
-				x = x.split(nick+', ')[1]
+				x = x.split(PolyBot, ')[1]
 				info = x.split(' ')
 				info[0] = info[0].strip(' \t\n\r')
 
