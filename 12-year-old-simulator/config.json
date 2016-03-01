@@ -1,0 +1,20 @@
+{
+    "botnick": "mlgprom8",
+    "server": "irc.hira.io",
+    "port": 6697,
+    "main_channel": "",
+    "channels": "",
+    "join_on_invite": true,
+    "ssl_enabled": true,
+    "sasl": false,
+    "enforce_sasl": false,
+    "nickserv_login": false,
+    "account_username": "",
+    "account_password": "",
+    "server_password": "",
+    "main_channel_only_mode": false,
+    "spam_lenny": false,
+    "spam_lenny_time": "random",
+    "respond_by": "nick",
+    "autoshuffle_words": 0.5
+}
