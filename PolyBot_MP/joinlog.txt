@@ -263,3 +263,9 @@ PING :perfect.goat.chat
 :BioAcid!~Nocturnal@net-hs7bke.adsl.xs4all.nl JOIN :#modernpowers
 :PMYAIceland!~PMYAIceland@net-aop8a4.threembb.co.uk JOIN :#modernpowers
 :alybad]!webchat@net-aip.65f.184.203.IP JOIN :#modernpowers
+:PolyBot!~PolyBot@monoxane.com/bot JOIN :#modernpowers
+:eddie.goat.chat 332 PolyBot #modernpowers :/v/ModernPowers | Keep it civil and have fun! | Join us for music: https://goo.gl/Owb6df | Go submit your claim!!!! | HAPPY BIRTHDAY E-WERD | The mods are Nazis | Polsaker is a Commie |
+:eddie.goat.chat 333 PolyBot #modernpowers Nazi!~Cloud@fool.me.once.im.mad.fool.me.twice.how.could.you 1460319265
+:eddie.goat.chat 353 PolyBot = #modernpowers :Alybad|Unemployed Jobes|Reality +dong E-werd @BioAcid|Iran @jidlaph|Zhonghua v ravioli @monoxane heili Polsaker bitbomb @gary pembo210 heili-work Failure StatServ Cookiestomper Rain pwn|fertility-consultant ~Boukertwork @jesuspiece jim fermino %jennifer Techius|NorthKorea Boukertzzz Brazil fr0stbit3|Norway Panama|Technician90 PolyBot 
+:eddie.goat.chat 366 PolyBot #modernpowers :End of /NAMES list.
+:gary!~gary@meep.meep MODE #modernpowers +v PolyBot
