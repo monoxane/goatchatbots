@@ -44,7 +44,7 @@ while True:
     data = irc.recv ( 4096 )
     print data
 
-    if data.find ( 'Welcome to...' ) != -1:
+    if data.find ( 'End of message of the day.' ) != -1:
             Join(homechan)
             irc.send('MODE '+nick+' +B')
             time.sleep(2)
