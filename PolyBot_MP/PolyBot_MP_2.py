@@ -110,19 +110,19 @@ while True:
 					Send('Hi '+ nick + '!')
 				else:
 					Send("I'm sorry "+ nick +", I'm afraid I can't do that")
-	if action == 'JOIN':
-		open("joinlog.txt", 'a').write(data)
-		time.sleep(0.5)
-		wb = random.choice(["Welcome Back", "Hello", "Welcome"])
-		nick = data.split('!')[0]
-		nick = nick.replace(':', ' ')
-		nick = nick.replace(' ', '')
-		nick = nick.strip(' \t\n\r')
-		datafile = file('joinlog.txt')
-		for line in datafile:
-			if nick in line:
-				Send('Welcome To The Matrix, ' +nick)
-				break
-			else:
-				Send(wb + ' ' + nick)
-				break
+		if action == 'JOIN':
+			open("joinlog.txt", 'a').write(data)
+			time.sleep(0.5)
+			wb = random.choice(["Welcome Back", "Hello", "Welcome"])
+			nick = data.split('!')[0]
+			nick = nick.replace(':', ' ')
+			nick = nick.replace(' ', '')
+			nick = nick.strip(' \t\n\r')
+			datafile = file('joinlog.txt')
+			for line in datafile:
+				if nick in line:
+					Send('Welcome To The Matrix, ' +nick)
+					break
+				else:
+					Send(wb + ' ' + nick)
+					break
