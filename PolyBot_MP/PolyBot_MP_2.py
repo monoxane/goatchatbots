@@ -40,42 +40,6 @@ def NewNick():
 
 #------------------------------------------------------------------------------#
 while True:
-<<<<<<< HEAD
-	action = 'none'
-	data = irc.recv ( 4096 )
-	print data
-
-	if data.find ( 'End of message of the day' ) != -1:
-			Join(homechan)
-			irc.send('MODE PolyBot +B\r\n')
-			time.sleep(2)
-			data = ''
-
-	if data.find ( 'PING' ) != -1:
-			irc.send ( 'PONG ' + data.split() [ 1 ] + '\r\n' )
-
-
-	#--------------------------- Action check --------------------------------#
-	if data.find('#') != -1:
-		action = data.split('#')[0]
-		action = action.split(' ')[1]
-
-	if data.find('NICK') != -1:
-		if data.find('#') == -1:
-			action = 'NICK'
-
-	#----------------------------- Actions -----------------------------------#
-	if action != 'none':
-
-		if action == 'PRIVMSG':
-
-			if data.find('v/') != -1:
-				match = re.search('v/(\w*)', data)
-				for group in match.groups():
-					Send(str('[voat.co/v/') + group + str(']'))
-
-			if data.find('PolyBot, ') != -1:
-=======
     action = 'none'
     data = irc.recv ( 4096 )
     print data
@@ -105,7 +69,6 @@ while True:
 		if action == 'PRIVMSG':
 				
 			if data.find(PolyBot, ') != -1:
->>>>>>> d0a4486f0d556c29549f22219710ec852e2ec8e0
 				x = data.split('#')[1]
 				x = x.split(PolyBot, ')[1]
 				info = x.split(' ')
@@ -144,16 +107,6 @@ while True:
 					Send('pong')
 
 				elif info[0] == 'hi':
-<<<<<<< HEAD
-					Send('Hi ' + nick +'!')
-=======
-					GetNick(data)
-					Send('Hi! ' + nick)
-		                elif info[0] == 'spam':
-					Send('---------------Spam Spam Spam Spammity Spam----------------')
-				elif info[0] == 'version':
-					Send('2.0')
->>>>>>> d0a4486f0d556c29549f22219710ec852e2ec8e0
 				else:
 					Send("I'm sorry "+ nick +", I'm afraid I can't do that")
 	if action == 'JOIN':
