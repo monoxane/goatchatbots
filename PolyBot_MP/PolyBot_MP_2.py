@@ -70,7 +70,7 @@ while True:
 
 			if data.find('PolyBot, ') != -1:
 				x = data.split('#')[1]
-				x = x.split(PolyBot, ')[1]
+				x = x.split('PolyBot, ')[1]
 				info = x.split(' ')
 				info[0] = info[0].strip(' \t\n\r')
 
