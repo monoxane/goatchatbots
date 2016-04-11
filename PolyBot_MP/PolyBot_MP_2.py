@@ -46,7 +46,7 @@ while True:
 
     if data.find ( 'End of message of the day.' ) != -1:
             Join(homechan)
-            irc.send('MODE '+nick+' +B')
+            irc.send('MODE PolyBot +B')
             time.sleep(2)
             data = ''
 
