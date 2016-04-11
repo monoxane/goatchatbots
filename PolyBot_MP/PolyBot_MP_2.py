@@ -107,6 +107,7 @@ while True:
 					Send('pong')
 
 				elif info[0] == 'hi':
+					Send('Hi '+ nick + '!')
 				else:
 					Send("I'm sorry "+ nick +", I'm afraid I can't do that")
 	if action == 'JOIN':
