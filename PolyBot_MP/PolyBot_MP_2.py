@@ -52,7 +52,7 @@ while True:
 
     if data.find ( 'PING' ) != -1:
             irc.send ( 'PONG ' + data.split() [ 1 ] + '\r\n' )
-            
+
 
     #--------------------------- Action check --------------------------------#
     if data.find('#') != -1:
@@ -65,10 +65,10 @@ while True:
 
     #----------------------------- Actions -----------------------------------#
     if action != 'none':
-		
+
 		if action == 'PRIVMSG':
-				
-			if data.find(PolyBot, ') != -1:
+
+			if data.find('PolyBot, ') != -1:
 				x = data.split('#')[1]
 				x = x.split(PolyBot, ')[1]
 				info = x.split(' ')
