@@ -21,6 +21,11 @@ irc.send ( 'USER PolyBot PolyBot PolyBot :Python IRC\r\n' )
 
 def Send(msg):
 	irc.send('PRIVMSG #' + homechan + ' :' + msg +  '\r\n')
+	
+def Botlog(logmsg):
+	irc.send('PRIVMSG #PolyBotLogging :' + logmsg + '\r\n')
+	open("botlog.txt", 'a').write(logmsg)
+	
 
 def Join(chan):
 	irc.send ( 'JOIN #' + chan + '\r\n' )
@@ -46,6 +51,7 @@ while True:
 
     if data.find ( 'End of message of the day.' ) != -1:
             Join(homechan)
+            Join('PolyBotLogging')
             irc.send('MODE PolyBot +B')
             time.sleep(2)
             data = ''
@@ -100,16 +106,18 @@ while True:
 					Send('Claims Form:\00310 https://goo.gl/LWhZii\003')
 				elif info[0] == 'irchelp':
 					if nick == 'Techius' or 'techius':
-						print('fucking techius')
+						print('techius')
 					else:
-						Send('monoxane, Polsaker, E-werd, Ravioli, failure, ping. This fucker needs help')
+						Send('monoxane, Polsaker, E-werd, Ravioli, Failure, ping. This guy needs help')
 				elif info[0] == 'ping':
 					Send('pong')
-
 				elif info[0] == 'hi':
 					Send('Hi '+ nick + '!')
 				else:
 					Send("I'm sorry "+ nick +", I'm afraid I can't do that")
+					
+				SendBotlog(nick + ' executed ' +info)
+				
 		if action == 'JOIN':
 			open("joinlog.txt", 'a').write(data)
 			time.sleep(0.5)
