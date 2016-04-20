@@ -13,19 +13,19 @@ irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
 irc.connect ( ( network, port ) )
 print irc.recv ( 4096 )
 irc.send ( 'PASS pjmtpjmt\r\n')
-irc.send ( 'NICK PolyBot\r\n' )
-irc.send ( 'USER PolyBot PolyBot PolyBot :Python IRC\r\n' )
+irc.send ( 'NICK monobot\r\n' )
+irc.send ( 'USER monobot monobot monobot :Python IRC\r\n' )
 #----------------------------------------------------------------------------------#
 
 #---------------------------------- Functions -------------------------------------#
 
 def Send(msg):
 	irc.send('PRIVMSG #' + homechan + ' :' + msg +  '\r\n')
-	
+
 def Botlog(logmsg):
 	irc.send('PRIVMSG #PolyBotLogging :' + logmsg + '\r\n')
-	open("botlog.txt", 'a').write(logmsg)
-	
+	open("botlog.txt", 'a').write(logmsg +'\n')
+
 
 def Join(chan):
 	irc.send ( 'JOIN #' + chan + '\r\n' )
@@ -52,7 +52,7 @@ while True:
     if data.find ( 'End of message of the day.' ) != -1:
             Join(homechan)
             Join('PolyBotLogging')
-            irc.send('MODE PolyBot +B')
+            irc.send('MODE monobot +B \r\n')
             time.sleep(2)
             data = ''
 
@@ -74,9 +74,17 @@ while True:
 
 		if action == 'PRIVMSG':
 
-			if data.find('PolyBot, ') != -1:
+			if data.find('space') != -1:
+				Send('spaaaaaaaaaaaaaaace')
+			if data.find('success') != -1:
+				Send("This was a triumph.")
+				Send("I'm making a note here:")
+				Send("HUGE SUCCESS.")
+				Send("It's hard to overstate")
+				Send("my satisfaction.")
+			if data.find('monobot, ') != -1:
 				x = data.split('#')[1]
-				x = x.split('PolyBot, ')[1]
+				x = x.split('monobot, ')[1]
 				info = x.split(' ')
 				info[0] = info[0].strip(' \t\n\r')
 
@@ -105,27 +113,41 @@ while True:
 					Send(' ')
 					Send('Claims Form:\00310 https://goo.gl/LWhZii\003')
 				elif info[0] == 'irchelp':
-					if nick == 'Techius' or 'techius':
-						print('techius')
+					if data.find('techius'):
+						Botlog('Techius is being an asshole')
 					else:
 						Send('monoxane, Polsaker, E-werd, Ravioli, Failure, ping. This guy needs help')
+				elif info[0] == 'spam':
+					Send('========= SPAM SPAM SPAMMITTY SPAM =========')
+				elif info[0] == 'dev':
+					Send('DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS')
+				elif info[0] == 'developers':
+					Send('DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS DEVELOPERS')
 				elif info[0] == 'ping':
 					Send('pong')
 				elif info[0] == 'hi':
 					Send('Hi '+ nick + '!')
+				elif info[0] == 'fact':
+					fact = random.choice(["Rats cannot throw up.", "Iguanas can stay underwater for twenty-eight point seven minutes.", "The moon orbits the Earth every 27.32 days.", "A gallon of water weighs 8.34 pounds.", "The billionth digit of Pi is 9.", "Humans can survive underwater. But not for very long.", "A nanosecond lasts one billionth of a second.", "Honey does not spoil.", "The atomic weight of Germanium is seven two point six four.", "An ostrich's eye is bigger than its brain.", "According to Norse legend, thunder god Thor's chariot was pulled across the sky by two goats.", "The Schrodinger's cat paradox outlines a situation in which a cat in a box must be considered, for all intents and purposes, simultaneously alive and dead. Schrodinger created this paradox as a justification for killing cats.", "You will be dead soon." "Apples. Oranges. Pears. Plums. Kumquats. Tangerines. Lemons. Limes. Avocado. Tomato. Banana. Papaya. Guava.", "Warning, sphere corruption at twenty-- rats cannot throw up.", "Dreams are the subconscious mind's way of reminding people to go to school naked and have their teeth fall out."])
+					Send(fact)
+				elif info[0] == 'adventure':
+					adventure = random.choice(["QUICK: WHAT'S THE SITUATION? Oh, hey, hi pretty lady. My name's Rick. So, you out having a little adventure?", "What, are you fighting that guy? You got that under control? You know, because, looks like there's a lot of stuff on fire...", "Hey, a countdown clock! Man, that is trouble. Situation's looking pretty ugly. For such a beautiful woman. If you don't mind me saying.", "I don't want to scare you, but, I'm an Adventure Sphere. Designed for danger. So, why don't you go ahead and have yourself a little lady break, and I'll just take it from here.", "Here, stand behind me. Yeah, just like that. Just like you're doing. Things are about to get real messy.", "Going for it yourself, huh? All right, angel. I'll do what I can to cover you.", "Doesn't bother me. I gotta say, the view's mighty nice from right here.", "Man, that clock is moving fast. And you are beautiful. Always time to compliment a pretty lady. All right, back to work. Let's do this.", "Did you hear that? I think something just exploded. Man, we are in a lot of danger. This is like Christmas. No, it's better than Christmas. This should be its own holiday. Explosion Day!", "Happy Explosion Day, gorgeous.", "I'll tell ya, it's times like this I wish I had a waist so I could wear all my black belts. Yeah, I'm a black belt. In pretty much everything. Karate. Larate. Jiu Jitsu. Kick punching. Belt making. Taekwondo... Bedroom.", "I am a coiled spring right now. Tension and power. Just... I'm a muscle. Like a big arm muscle, punching through a brick wall, and it's hitting the wall so hard the arm is catching on fire. Oh yeah.", "I probably wouldn't have let things get this far, but you go ahead and do things your way.", "Tell ya what, why don't you put me down and I'll make a distraction.", "All right. You create a distraction then, and I'll distract him from YOUR distraction.", "All right, your funeral. Your beautiful-lady-corpse open casket funeral.", "Do you have a gun? Because I should really have a gun. What is that thing you're holding?", "How about a knife, then? You keep the gun, I'll use a knife."])
+					Send(adventure)
 				else:
 					Send("I'm sorry "+ nick +", I'm afraid I can't do that")
-					
-				SendBotlog(nick + ' executed ' +info)
-				
+
+				Botlog(nick + ' executed ' + str(info))
+
 		if action == 'JOIN':
 			open("joinlog.txt", 'a').write(data)
 			time.sleep(0.5)
-			wb = random.choice(["Welcome Back", "Hello", "Welcome"])
 			nick = data.split('!')[0]
 			nick = nick.replace(':', ' ')
 			nick = nick.replace(' ', '')
 			nick = nick.strip(' \t\n\r')
+			normal = random.choice(["Welcome Back", "Hello", "Welcome"])
+			rare = random.choice(["Welcome... to the desert of the real.", "So, wake up," + nick + ". Wake up and... *smell the ashes*...", "Hello, and again, welcome to the Aperture Science Enrichment Center."])
+			wb = random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, rare])
 			datafile = file('joinlog.txt')
 			for line in datafile:
 				if nick in line:
