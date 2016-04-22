@@ -145,7 +145,7 @@ while True:
 			nick = nick.replace(':', ' ')
 			nick = nick.replace(' ', '')
 			nick = nick.strip(' \t\n\r')
-			normal = random.choice(["Welcome Back", "Hello", "Welcome"]) + nick
+			normal = random.choice(["Welcome Back ", "Hello ", "Welcome "]) + nick
 			rare = random.choice(["Welcome " + nick + "... to the desert of the real.", "So, wake up, " + nick + ". Wake up and... *smell the ashes*...", "Hello, and again, welcome to the Aperture Science Enrichment Center " + nick + "."])
 			wb = random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, rare])
 			datafile = file('joinlog.txt')
