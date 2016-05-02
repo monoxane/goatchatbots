@@ -82,6 +82,7 @@ while True:
 				Send("HUGE SUCCESS.")
 				Send("It's hard to overstate")
 				Send("my satisfaction.")
+
 			if data.find('monobot, ') != -1:
 				x = data.split('#')[1]
 				x = x.split('monobot, ')[1]
@@ -113,7 +114,7 @@ while True:
 					Send(' ')
 					Send('Claims Form:\00310 https://goo.gl/LWhZii\003')
 				elif info[0] == 'irchelp':
-					if data.find('techius'):
+					if nick == 'Techius':
 						Botlog('Techius is being an asshole')
 					else:
 						Send('monoxane, Polsaker, E-werd, Ravioli, Failure, ping. This guy needs help')
@@ -136,7 +137,7 @@ while True:
 				else:
 					Send("I'm sorry "+ nick +", I'm afraid I can't do that")
 
-				Botlog(nick + ' executed ' + str(info))
+				Botlog(nick + ' executed ' + str(info).strip('[', "'", ']'))
 
 		if action == 'JOIN':
 			open("joinlog.txt", 'a').write(data)
