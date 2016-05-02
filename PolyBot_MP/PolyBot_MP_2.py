@@ -146,14 +146,14 @@ while True:
 			nick = nick.replace(':', ' ')
 			nick = nick.replace(' ', '')
 			nick = nick.strip(' \t\n\r')
-			normal = random.choice(["Welcome Back", "Hello", "Welcome"])
-			rare = random.choice(["Welcome... to the desert of the real.", "So, wake up," + nick + ". Wake up and... *smell the ashes*...", "Hello, and again, welcome to the Aperture Science Enrichment Center."])
-			wb = random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, rare])
+			normal = random.choice(["Welcome Back ", "Hello ", "Welcome "]) + nick
+			rare = random.choice(["Welcome " + nick + "... to the desert of the real.", "So, wake up, " + nick + ". Wake up and... *smell the ashes*...", "Hello, and again, welcome to the Aperture Science Enrichment Center " + nick + "."])
+			wb = random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, rare])
 			datafile = file('joinlog.txt')
 			for line in datafile:
 				if nick in line:
 					Send('Welcome To The Matrix, ' +nick)
 					break
 				else:
-					Send(wb + ' ' + nick)
+					Send(wb)
 					break
