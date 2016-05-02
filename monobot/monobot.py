@@ -8,14 +8,14 @@ import random
 #----------------------------------- Settings --------------------------------------#
 network = 'irc.goat.chat'
 port = 6667
-homechan = 'monobotlogging'
+homechan = 'modernpowers'
 logchan = 'monobotlogging'
 irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
 irc.connect ( ( network, port ) )
 print irc.recv ( 4096 )
 irc.send ( 'PASS pjmtpjmt\r\n')
-irc.send ( 'NICK monobot|testing\r\n' )
-irc.send ( 'USER monobot|testing monobot monobot :Python IRC\r\n' )
+irc.send ( 'NICK monobot\r\n' )
+irc.send ( 'USER monobot monobot monobot :Python IRC\r\n' )
 #----------------------------------------------------------------------------------#
 
 #---------------------------------- Functions -------------------------------------#
@@ -84,9 +84,9 @@ while True:
 				Send("It's hard to overstate")
 				Send("my satisfaction.")
 
-			if data.find('monobot|testing, ') != -1:
+			if data.find('monobot, ') != -1:
 				x = data.split('#')[1]
-				x = x.split('monobot|testing, ')[1]
+				x = x.split('monobot, ')[1]
 				info = x.split(' ')
 				info[0] = info[0].strip(' \t\n\r')
 
