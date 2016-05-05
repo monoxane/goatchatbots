@@ -17,7 +17,7 @@ irc.send ( 'PASS pjmtpjmt\r\n')
 irc.send ( 'NICK monobot\r\n' )
 irc.send ( 'USER monobot monobot monobot :Python IRC\r\n' )
 #----------------------------------------------------------------------------------#
-
+space = 0
 #---------------------------------- Functions -------------------------------------#
 
 def Send(msg):
@@ -76,7 +76,8 @@ while True:
 		if action == 'PRIVMSG':
 
 			if data.find('space') != -1:
-				Send('spaaaaaaaaaaaaaaace')
+				if space = 1:
+					Send('spaaaaaaaaaaaaaaace')
 			if data.find('success') != -1:
 				Send("This was a triumph.")
 				Send("I'm making a note here:")
@@ -95,6 +96,14 @@ while True:
 				nick = nick.replace(' ', '')
 				nick = nick.strip(' \t\n\r')
 
+				if info[0] == 'space':
+					if info[1] == 0:
+						space = 0
+					if info[1] == 1:
+						space = 1:
+					else:
+						Send('Fuck you, chose a correct mode')
+				
 				if info[0] == 'info':
 					Send('This is the IRC channel for Modern Powers,' )
 					Send('We are a country roleplaying game' )
