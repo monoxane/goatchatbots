@@ -100,7 +100,7 @@ while True:
 					if info[1] == '0':
 						space == '0'
 					if info[1] == '1':
-						space == '1':
+						space == '1'
 					else:
 						Send('Fuck you, chose a correct mode')
 				
