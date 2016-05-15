@@ -163,7 +163,7 @@ while True:
 			wb = random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, rare])
 			datafile = file('joinlog.txt')
 			if nick == 'hydra':
-				send('HAIL HYDRA')
+				Send('HAIL HYDRA')
 			else:
 				for line in datafile:
 					if nick in line:
