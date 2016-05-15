@@ -162,10 +162,13 @@ while True:
 			rare = random.choice(["Welcome... to the desert of the real.", "So, wake up," + nick + ". Wake up and... *smell the ashes*...", "Hello, and again, welcome to the Aperture Science Enrichment Center."])
 			wb = random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, rare])
 			datafile = file('joinlog.txt')
-			for line in datafile:
-				if nick in line:
-					Send('Welcome To The Matrix, ' +nick)
-					break
-				else:
-					Send(wb + ' ' + nick)
+			if nick == 'hydra':
+				send('HAIL HYDRA')
+			else:
+				for line in datafile:
+					if nick in line:
+						Send('Welcome To The Matrix, ' +nick)
+						break
+					else:
+						Send(wb + ' ' + nick)
 					break
