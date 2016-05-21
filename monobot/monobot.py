@@ -95,13 +95,7 @@ while True:
 				nick = nick.strip(' \t\n\r')
 
 				if info[0] == 'space':
-					if info[1] == '0':
-						space = '0'
-					if info[1] == '1':
-						space = '1'
-					else:
-						Send('Fuck you, chose a correct mode')
-				
+					
 				if info[0] == 'info':
 					Send('This is the IRC channel for Modern Powers,' )
 					Send('We are a country roleplaying game' )
