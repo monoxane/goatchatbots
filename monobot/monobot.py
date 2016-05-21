@@ -95,6 +95,7 @@ while True:
 				nick = nick.strip(' \t\n\r')
 
 				if info[0] == 'space':
+					print('Space')
 					
 				if info[0] == 'info':
 					Send('This is the IRC channel for Modern Powers,' )
