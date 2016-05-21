@@ -16,8 +16,7 @@ print irc.recv ( 4096 )
 irc.send ( 'PASS pjmtpjmt\r\n')
 irc.send ( 'NICK monobot\r\n' )
 irc.send ( 'USER monobot monobot monobot :Python IRC\r\n' )
-#----------------------------------------------------------------------------------#
-space = '0'
+
 #---------------------------------- Functions -------------------------------------#
 
 def Send(msg):
@@ -76,8 +75,7 @@ while True:
 		if action == 'PRIVMSG':
 
 			if data.find('space') != -1:
-				if space == '1':
-					Send('spaaaaaaaaaaaaaaace')
+				Send('spaaaaaaaaaaaaaaace')
 			if data.find('success') != -1:
 				Send("This was a triumph.")
 				Send("I'm making a note here:")
