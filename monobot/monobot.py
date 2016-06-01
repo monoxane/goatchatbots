@@ -73,16 +73,7 @@ while True:
     if action != 'none':
 
 		if action == 'PRIVMSG':
-
-			if data.find('space') != -1:
-				Send('spaaaaaaaaaaaaaaace')
-			if data.find('success') != -1:
-				Send("This was a triumph.")
-				Send("I'm making a note here:")
-				Send("HUGE SUCCESS.")
-				Send("It's hard to overstate")
-				Send("my satisfaction.")
-
+			
 			if data.find('monobot, ') != -1:
 				x = data.split('#')[1]
 				x = x.split('monobot, ')[1]
@@ -93,9 +84,6 @@ while True:
 				nick = nick.replace(':', ' ')
 				nick = nick.replace(' ', '')
 				nick = nick.strip(' \t\n\r')
-
-				if info[0] == 'space':
-					print('Space')
 					
 				if info[0] == 'info':
 					Send('This is the IRC channel for Modern Powers,' )
