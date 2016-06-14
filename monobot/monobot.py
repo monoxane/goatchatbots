@@ -75,8 +75,8 @@ while True:
 		if action == 'PRIVMSG':
 			
 			if data.find('1984') != -1:
-				Send('WAR IS PEACE')
-				Send('FREEDOM IS SLAVERY')
+				Send('     WAR IS PEACE     ')
+				Send('  FREEDOM IS SLAVERY  ')
 				Send('IGNORANCE IS STREANGTH')
 				
 			if data.find('monobot, ') != -1:
