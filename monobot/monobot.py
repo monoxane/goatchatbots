@@ -74,6 +74,11 @@ while True:
 
 		if action == 'PRIVMSG':
 			
+			if data.find('1984'):
+				Send('WAR IS PEACE')
+				Send('FREEDOM IS SLAVERY')
+				Send('IGNORANCE IS STREANGTH')
+				
 			if data.find('monobot, ') != -1:
 				x = data.split('#')[1]
 				x = x.split('monobot, ')[1]
