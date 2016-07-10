@@ -98,7 +98,7 @@ while True:
 					Send('For the rules go to:\00310 http://goo.gl/54sgp3\003' )
 				elif info[0] == 'kiwigen':
 					Send('https://kiwiirc.com/client/irc.goat.chat:+6697' + data.split('kiwigen ')[1] + '\r\n')
-					Botlog('kiwigen consisted of: ' + data.split('kiwigen ')[1] + '\r\n'))
+					Botlog('kiwigen consisted of: ' + data.split('kiwigen ')[1] + '\r\n')
 				elif info[0] == 'poem':
 					Send('Do not go gentle into that good night,')
 					Send('Old age should burn and rave at close of day;')
