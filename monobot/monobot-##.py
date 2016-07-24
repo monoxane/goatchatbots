@@ -6,7 +6,7 @@ import time
 import random
 
 #----------------------------------- Settings --------------------------------------#
-network = 'irc.freenode.net'
+network = 'hitchcock.freenode.net'
 port = 6667
 homechan = '#'
 logchan = 'monobotlogging'
@@ -49,7 +49,7 @@ while True:
     data = irc.recv ( 4096 )
     print data
 
-    if data.find ( '* End of /MOTD command.' ) != -1:
+    if data.find ( 'End of /MOTD' ) != -1:
             Join(homechan)
             Join(logchan)
             irc.send('MODE monobot +B \r\n')
