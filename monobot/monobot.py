@@ -149,15 +149,13 @@ while True:
 			nick = nick.strip(' \t\n\r')
 			normal = random.choice(["Welcome Back", "Hello", "Welcome"])
 			rare = random.choice(["Welcome... to the desert of the real.", "So, wake up," + nick + ". Wake up and... *smell the ashes*...", "Hello, and again, welcome to the Aperture Science Enrichment Center."])
-			wb = random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, rare])
-			datafile = file('joinlog.txt')
 			if nick == 'hydra':
 				Send('HAIL HYDRA')
 			else:
-				for line in datafile:
+				for line in file('joinlog.txt'):
 					if nick in line:
 						Send('Welcome To The Matrix, ' +nick)
 						break
 					else:
-						Send(wb + ' ' + nick)
+						Send(random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, rare]) + ' ' + nick)
 					break
