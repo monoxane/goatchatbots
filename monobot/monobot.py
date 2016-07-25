@@ -138,10 +138,10 @@ while True:
 				else:
 					Send("I'm sorry "+ nick +", I'm afraid I can't do that")
 
-				Botlog("Freenode: " + nick + ' executed ' + str(info).strip('[').strip("'").strip(']').strip("', '").strip("\r\n'"))
+				Botlog("Goatchat: " + nick + ' executed ' + str(info).strip('[').strip("'").strip(']').strip("', '").strip("\r\n'"))
 
 		if action == 'JOIN':
-			open("joinlog.txt", 'a').write("Freenode: " + data)
+			open("joinlog.txt", 'a').write("Goatchat: " + data)
 			time.sleep(0.5)
 			nick = data.split('!')[0]
 			nick = nick.replace(':', ' ')
