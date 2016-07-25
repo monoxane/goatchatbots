@@ -9,7 +9,7 @@ import random
 network = 'irc.goat.chat'
 port = 6667
 homechan = 'modernpowers'
-logchan = 'monobotlogging'
+logchan = 'botlog'
 irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
 irc.connect ( ( network, port ) )
 print irc.recv ( 4096 )
