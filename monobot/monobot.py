@@ -80,9 +80,9 @@ while True:
 				Send('  FREEDOM IS SLAVERY  ')
 				Send('IGNORANCE IS STREANGTH')
 
-			if data.find('monobot' + regex(:|,)) != -1:
+			if data.find('monobot' + regex([:,])) != -1:
 				x = data.split('#')[1]
-				x = x.split('monobot' + regex(:|,) + ' ')[1]
+				x = x.split('monobot' + regex([:,]) + ' ')[1]
 				info = x.split(' ')
 				info[0] = info[0].strip(' \t\n\r')
 
