@@ -4,6 +4,7 @@ from random import randint
 import re
 import time
 import random
+import regex
 
 #----------------------------------- Settings --------------------------------------#
 network = 'irc.goat.chat'
