@@ -1,9 +1,7 @@
 import socket
-import sys
-from random import randint
-import re
 import time
 import random
+import urllib
 
 #----------------------------------- Settings --------------------------------------#
 network = 'irc.goat.chat'
@@ -94,6 +92,11 @@ def Commands(x):
 		Send(adventure)
 	elif info[0] == 'say':
 		Send(data.split('say ')[1] + '\r\n')
+	elif info[0] == 'archive':
+		archiveURL = data.split('archive ')[1]
+		archiveURL = urllib.quote_plus(archiveURL)
+		Send('https://archive.is/?run=1&url=' + archiveURL +'\r\n')
+
 	else:
 		Send("I'm sorry "+ nick +", I'm afraid I can't do that")
 	Botlog("Goatchat: " + nick + ' executed ' + str(info).strip('[').strip("'").strip(']').strip("', '").strip("\r\n'"))
@@ -133,7 +136,7 @@ while True:
 				Send('     WAR IS PEACE     ')
 				Send('  FREEDOM IS SLAVERY  ')
 				Send('IGNORANCE IS STREANGTH')
-	
+
 			if data.find('monobot, ') != -1:
 				x = data.split('#')[1]
 				x = x.split('monobot, ')[1]
