@@ -96,6 +96,8 @@ def Commands(x):
 		archiveURL = data.split('archive ')[1]
 		archiveURL = urllib.quote_plus(archiveURL)
 		Send('https://archive.is/?run=1&url=' + archiveURL +'\r\n')
+	elif info[0] == 'repo':
+		Send('https://github.com/monoxane/Goat.Chat-Bots')
 
 	else:
 		Send("I'm sorry "+ nick +", I'm afraid I can't do that")
