@@ -95,7 +95,7 @@ while True:
     data = irc.recv ( 4096 )
     print data
 
-    if data.find ( 'End of message of the day.' ) != -1:
+    if data.find ( '376 monobot' ) != -1:
             Join(homechan)
             Join(logchan)
             irc.send('MODE monobot +B \r\n')
