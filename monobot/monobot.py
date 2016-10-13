@@ -96,7 +96,10 @@ def Commands(x):
 		if info[1] == '':
 			Send('Please input a URL to be archived')
 			BotLog('Archive not successfull because of lack of URL')
-		elif:
+		elif info[1] == ' ':
+			Send('Please input a URL to be archived')
+			BotLog('Archive not successfull because of lack of URL')
+		else:
 			archiveURL = data.split('archive ')[1]
 			archiveURL = urllib.quote_plus(archiveURL)
 			Send('https://archive.is/?run=1&url=' + archiveURL +'\r\n')
