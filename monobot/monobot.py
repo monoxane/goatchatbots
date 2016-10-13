@@ -93,9 +93,13 @@ def Commands(x):
 	elif info[0] == 'say':
 		Send(data.split('say ')[1] + '\r\n')
 	elif info[0] == 'archive':
-		archiveURL = data.split('archive ')[1]
-		archiveURL = urllib.quote_plus(archiveURL)
-		Send('https://archive.is/?run=1&url=' + archiveURL +'\r\n')
+		if info[1] == '':
+			Send('Please input a URL to be archived')
+			BotLog('Archive not successfull because of lack of URL')
+		elif:
+			archiveURL = data.split('archive ')[1]
+			archiveURL = urllib.quote_plus(archiveURL)
+			Send('https://archive.is/?run=1&url=' + archiveURL +'\r\n')
 	elif info[0] == 'repo':
 		Send('https://github.com/monoxane/Goat.Chat-Bots')
 
