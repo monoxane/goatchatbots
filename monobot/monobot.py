@@ -141,6 +141,12 @@ while True:
 				Send('     WAR IS PEACE     ')
 				Send('  FREEDOM IS SLAVERY  ')
 				Send('IGNORANCE IS STREANGTH')
+				
+			if data.find('lod') != -1:
+				Send('ಠ_ಠ')
+				
+			if data.find('shrugface') != -1:
+				Send(' ¯\_(ツ)_/¯')
 
 			if data.find('monobot, ') != -1:
 				x = data.split('#')[1]
