@@ -1,3 +1,4 @@
+# coding=UTF8
 import socket
 import time
 import random
