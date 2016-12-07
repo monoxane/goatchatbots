@@ -14,7 +14,7 @@ irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
 irc.connect ( ( network, port ) )
 print irc.recv ( 4096 )
 irc.send ( 'PASS pjmtpjmt\r\n')
-irc.send ( 'NICK monobottest\r\n' )
+irc.send ( 'NICK monobot\r\n' )
 irc.send ( 'USER monobot monobot monobot :Python IRC\r\n' )
 
 #---------------------------------- Functions -------------------------------------#
