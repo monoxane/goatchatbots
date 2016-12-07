@@ -3,6 +3,7 @@ import socket
 import time
 import random
 import urllib
+import datetime
 
 #----------------------------------- Settings --------------------------------------#
 network = 'irc.goat.chat'
@@ -13,7 +14,7 @@ irc = socket.socket ( socket.AF_INET, socket.SOCK_STREAM )
 irc.connect ( ( network, port ) )
 print irc.recv ( 4096 )
 irc.send ( 'PASS pjmtpjmt\r\n')
-irc.send ( 'NICK monobot\r\n' )
+irc.send ( 'NICK monobottest\r\n' )
 irc.send ( 'USER monobot monobot monobot :Python IRC\r\n' )
 
 #---------------------------------- Functions -------------------------------------#
@@ -39,6 +40,12 @@ def NewNick():
 			found = True
 			break
 	return found
+
+def cunt(text):
+	t = text.split()
+	t1=t[0]
+	to = t1[1:t1.index('!')].strip()
+	return to
 
 def Commands(x):
 	info = x.split(' ')
@@ -93,13 +100,13 @@ def Commands(x):
 		Send(adventure)
 	elif info[0] == 'say':
 		Send(data.split('say ')[1] + '\r\n')
-#	elif info[0] == 'archive':
-#		if info[1] and info[1]:
-#			archiveURL = data.split('archive ')[1]
-#			archiveURL = urllib.quote_plus(archiveURL)
-#			Send('https://archive.is/?run=1&url=' + archiveURL +'\r\n')
-#		else: 
-#			Send('Archive URL blank')
+	elif info[0] == 'archive':
+		if info[1] != " ":
+			archiveURL = data.split('archive ')[1]
+			archiveURL = urllib.quote_plus(archiveURL)
+			Send('https://archive.is/?run=1&url=' + archiveURL +'\r\n')
+		else: 
+			Send('Archive URL blank')
 	elif info[0] == 'repo':
 		Send('https://github.com/monoxane/Goat.Chat-Bots')
 
@@ -136,44 +143,53 @@ while True:
     #----------------------------- Actions -----------------------------------#
     if action != 'none':
 
-		if action == 'PRIVMSG':
+                if action == 'PRIVMSG':
 
-			if data.find('1984') != -1:
-				Send('     WAR IS PEACE     ')
-				Send('  FREEDOM IS SLAVERY  ')
-				Send('IGNORANCE IS STREANGTH')
-				
-			if data.find('lod') != -1:
-				Send('ಠ_ಠ')
-				
-			if data.find('shrugface') != -1:
-				Send(' ¯\_(ツ)_/¯')
+                        if data.find('1984') != -1:
+                                Send('     WAR IS PEACE     ')
+                                Send('  FREEDOM IS SLAVERY  ')
+                                Send('IGNORANCE IS STREANGTH')
+                                
+                        if data.find('lod') != -1:
+                                Send('ಠ_ಠ')
 
-			if data.find('monobot, ') != -1:
-				x = data.split('#')[1]
-				x = x.split('monobot, ')[1]
-				Commands(x)
-			elif data.find('monobot: ') != -1:
+                        if data.find("IS IT FRIDAY") != -1:
+                                d = datetime.date.today()
+                                if d.weekday() != 4:
+                                        Send("Not yet friend")
+                                else:
+                                        d += datetime.timedelta(1)
+                                        Send("YES IT IS!")
+                        
+                                
+                        if data.find('shrugface') != -1:
+                                Send(' ¯\_(ツ)_/¯')
+
+                        if data.find('monobot, ') != -1:
+                                x = data.split('#')[1]
+                                x = x.split('monobot, ')[1]
+                                Commands(x)
+                        elif data.find('monobot: ') != -1:
                                 x = data.split('#')[1]
                                 x = x.split('monobot: ')[1]
-				Commands(x)
+                                Commands(x)
 
-		if action == 'JOIN':
-			open("joinlog.txt", 'a').write("Goatchat: " + data)
-			time.sleep(0.5)
-			nick = data.split('!')[0]
-			nick = nick.replace(':', ' ')
-			nick = nick.replace(' ', '')
-			nick = nick.strip(' \t\n\r')
-			normal = random.choice(["Welcome Back", "Hello", "Welcome"])
-			rare = random.choice(["Welcome... to the desert of the real.", "So, wake up," + nick + ". Wake up and... *smell the ashes*...", "Hello, and again, welcome to the Aperture Science Enrichment Center."])
-			if nick == 'hydra':
-				Send('HAIL HYDRA')
-			else:
-				for line in file('joinlog.txt'):
-					if nick in line:
-						Send('Welcome To The Matrix, ' +nick)
-						break
-					else:
-						Send(random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, rare]) + ' ' + nick)
-					break
+                if action == 'JOIN':
+                        open("joinlog.txt", 'a').write("Goatchat: " + data)
+                        time.sleep(0.5)
+                        nick = data.split('!')[0]
+                        nick = nick.replace(':', ' ')
+                        nick = nick.replace(' ', '')
+                        nick = nick.strip(' \t\n\r')
+                        normal = random.choice(["Welcome Back", "Hello", "Welcome"])
+                        rare = random.choice(["Welcome... to the desert of the real.", "So, wake up," + nick + ". Wake up and... *smell the ashes*...", "Hello, and again, welcome to the Aperture Science Enrichment Center."])
+                        if nick == 'hydra':
+                                Send('HAIL HYDRA')
+                        else:
+                                for line in file('joinlog.txt'):
+                                        if nick in line:
+                                                Send('Welcome To The Matrix, ' +nick)
+                                                break
+                                        else:
+                                                Send(random.choice([normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, normal, rare]) + ' ' + nick)
+                                        break
