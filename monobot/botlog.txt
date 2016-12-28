@@ -30,3 +30,4 @@ monoxane executed say', '!voatstatsbot', 'monoxane', '\r\n
 monoxane executed say', '!voatstatsbot', 'atko\r\n
 monoxane executed say', '"Welcom', 'too', 'teh', 'hydraulik', 'pres', 'chanel"\r\n
 monoxane executed say', 'HAIL', 'HYDRA\r\n
+Goatchat: monoxane executed archive', '', '\r\n
