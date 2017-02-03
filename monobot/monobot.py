@@ -8,7 +8,7 @@ import json
 import urllib2
 
 #----------------------------------- Settings --------------------------------------#
-network = 'irc.goat.chat'
+network = 'kappa.hira.io'
 port = 6667
 homechan = 'modernpowers'
 logchan = 'botlog'
@@ -160,7 +160,7 @@ while True:
                         if data.find('1984') != -1:
                                 Send('     WAR IS PEACE     ')
                                 Send('  FREEDOM IS SLAVERY  ')
-                                Send('IGNORANCE IS STREANGTH')
+                                Send('IGNORANCE IS STRENGTH')
                                 
                         if data.find('lod') != -1:
                                 Send('ಠ_ಠ')
