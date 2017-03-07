@@ -4,9 +4,11 @@ import time
 import random
 import urllib
 import datetime
+import json
+import urllib2
 
 #----------------------------------- Settings --------------------------------------#
-network = 'irc.goat.chat'
+network = 'kappa.hira.io'
 port = 6667
 homechan = 'modernpowers'
 logchan = 'botlog'
@@ -47,6 +49,12 @@ def cunt(text):
 	to = t1[1:t1.index('!')].strip()
 	return to
 
+def Nick():
+	nick = data.split('!')[0]
+        nick = nick.replace(':', ' ')
+        nick = nick.replace(' ', '')
+        nick = nick.strip(' \t\n\r')
+	
 def Commands(x):
 	info = x.split(' ')
 	info[0] = info[0].strip(' \t\n\r')
@@ -62,8 +70,12 @@ def Commands(x):
 		Send('For more info go to:\00310 https://voat.co/v/modernpowers\003' )
 		Send('For the rules go to:\00310 http://goo.gl/54sgp3\003' )
 	elif info[0] == 'kiwigen':
-		Send('https://kiwiirc.com/client/irc.goat.chat:+6697' + data.split('kiwigen ')[1] + '\r\n')
-		Botlog('kiwigen consisted of: ' + data.split('kiwigen ')[1] + '\r\n')
+		if info[1] != '' or ' ':
+			Send('https://kiwiirc.com/client/irc.goat.chat:+6697' + data.split('kiwigen ')[1] + '\r\n')
+			Botlog('kiwigen consisted of: ' + data.split('kiwigen ')[1] + '\r\n')
+		else:   
+                        Send('Blank Channel')
+
 	elif info[0] == 'poem':
 		Send('Do not go gentle into that good night,')
 		Send('Old age should burn and rave at close of day;')
@@ -148,7 +160,7 @@ while True:
                         if data.find('1984') != -1:
                                 Send('     WAR IS PEACE     ')
                                 Send('  FREEDOM IS SLAVERY  ')
-                                Send('IGNORANCE IS STREANGTH')
+                                Send('IGNORANCE IS STRENGTH')
                                 
                         if data.find('lod') != -1:
                                 Send('ಠ_ಠ')
@@ -161,7 +173,13 @@ while True:
                                         d += datetime.timedelta(1)
                                         Send("YES IT IS!")
                         
-                                
+			if data.find ( '!btc' ) != -1:
+                		nick = data.split('!')[0]
+        			nick = nick.replace(':', ' ')
+        			nick = nick.replace(' ', '')
+			        nick = nick.strip(' \t\n\r')
+				Send(nick + ': $' +json.loads(urllib2.urlopen('https://api.coindesk.com/v1/bpi/currentprice.json').read())[u'bpi'][u'USD'][u'rate'][:-2] + ' USD')                        
+				Botlog("Goatchat: " + nick + ' executed !btc')        
                         if data.find('shrugface') != -1:
                                 Send(' ¯\_(ツ)_/¯')
 
